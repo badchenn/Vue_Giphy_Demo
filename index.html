@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>vue</title>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-api-request@latest/dist/vue-api-request.min.css" media="all">
+</head>
+<body>
+  <div id="app">
+  <p>{{ myResponse }}</p>
+	<p v-if="myResponse">{{ myResponse.data.data.image_url }}</p>
+	<api-request :resource="$api.giphyRandom" v-model="myResponse">
+	  <p v-if="myResponse">{{ myResponse.data.data.image_url }}</p>
+		<img v-if="myResponse" :src="myResponse.data.data.image_url" />
+	</api-request>
+</div>
+
+
+</body>
+</html>
